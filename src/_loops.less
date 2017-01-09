@@ -1,20 +1,28 @@
 .col(@index) when (@index = 1) { // initial
-  @item: ~".col-@{index}";
+  @item: ~".col-@{index}, .col-s-@{index}, .col-m-@{index}";
+  @offset: ~".col-offset-@{index}, .col-s-offset-@{index}, .col-m-offset-@{index}";
   @width: (@index / @cols ) * 100;
   @{item} {
     flex-basis: ~"@{width}%";
     max-width: ~"@{width}%";
+  }
+  @{offset} {
+    margin-left: ~"@{width}%";
   }
   .col((@index + 1), @item);
 }
 .col(@index, @list) when (@index =< @cols) {
-  @item: ~".col-@{index}";
+  @item: ~".col-@{index}, .col-s-@{index}, .col-m-@{index}";
+  @offset: ~".col-offset-@{index}, .col-s-offset-@{index}, .col-m-offset-@{index}";
   @width: (@index / @cols ) * 100;
   @{item} {
     flex-basis: ~"@{width}%";
     max-width: ~"@{width}%";
   }
-  .col((@index + 1), ~"@{list}, @{item}");
+  @{offset} {
+    margin-left: ~"@{width}%";
+  }
+  .col((@index + 1), ~"@{list}, @{item}, @{offset}");
 }
 .col(@index, @list) when (@index > @cols) { // terminal
   @{list} {
