@@ -1,0 +1,30 @@
+{
+  "name": "flexy",
+  "version": "0.0.1",
+  "description": "A simple yet customizable flexbox grid",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SaraVieira/Flexy.git"
+  },
+  "keywords": [
+    "css",
+    "flexbox",
+    "grid"
+  ],
+  "author": "Sara Vieira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SaraVieira/Flexy/issues"
+  },
+  "homepage": "https://github.com/SaraVieira/Flexy#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.0",
+    "gulp-serve": "^1.4.0",
+    "gulp-watch": "^4.3.11"
+  }
+}

@@ -1,0 +1,28 @@
+.col(@index) when (@index = 1) { // initial
+  @item: ~".col-@{index}";
+  @width: (@index / @cols ) * 100;
+  @{item} {
+    flex-basis: ~"@{width}%";
+    max-width: ~"@{width}%";
+  }
+  .col((@index + 1), @item);
+}
+.col(@index, @list) when (@index =< @cols) {
+  @item: ~".col-@{index}";
+  @width: (@index / @cols ) * 100;
+  @{item} {
+    flex-basis: ~"@{width}%";
+    max-width: ~"@{width}%";
+  }
+  .col((@index + 1), ~"@{list}, @{item}");
+}
+.col(@index, @list) when (@index > @cols) { // terminal
+  @{list} {
+    box-sizing: border-box;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding-right: @gutter / 2;
+    padding-left: @gutter / 2;
+  }
+}
+.col(1); // kickstart it
