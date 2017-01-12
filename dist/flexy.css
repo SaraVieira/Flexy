@@ -421,8 +421,8 @@
 .column.reverse {
   flex-direction: column-reverse;
 }
-[class^="items-"],
-[class^="justify-"] {
+[class*="items-"],
+[class*="justify-"] {
   display: flex;
 }
 .items-center {

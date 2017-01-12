@@ -1,3 +1,18 @@
+
+.for(@list, @code) {
+    & {
+        .loop(@i:1) when (@i =< length(@list)) {
+            @value: extract(@list, @i);
+
+            @code();
+
+            .loop(@i + 1);
+        }
+
+        .loop();
+    }
+}
+
 .loop(@counter, @media) when (@counter > 0) {
 	.loop((@counter - 1), @media);
   @width: (@counter / @cols ) * 100;
