@@ -1,36 +1,21 @@
-.col(@index) when (@index = 1) { // initial
-  @item: ~".col-@{index}, .col-s-@{index}, .col-m-@{index}";
-  @offset: ~".col-offset-@{index}, .col-s-offset-@{index}, .col-m-offset-@{index}";
-  @width: (@index / @cols ) * 100;
-  @{item} {
+.loop(@counter, @media) when (@counter > 0) {
+	.loop((@counter - 1), @media);
+  @width: (@counter / @cols ) * 100;
+	.col-@{media}-@{counter} {
+      flex-basis: ~"@{width}%";
+      max-width: ~"@{width}%";
+	}
+
+  .col-offset-@{media}-@{counter} {
+    margin-left: ~"@{width}%";
+	}
+}
+
+.loop(@counter) when (@counter > 0) {
+	.loop((@counter - 1));
+  @width: (@counter / @cols ) * 100;
+  .col-@{counter} {
     flex-basis: ~"@{width}%";
     max-width: ~"@{width}%";
-  }
-  @{offset} {
-    margin-left: ~"@{width}%";
-  }
-  .col((@index + 1), @item);
+	}
 }
-.col(@index, @list) when (@index =< @cols) {
-  @item: ~".col-@{index}, .col-s-@{index}, .col-m-@{index}";
-  @offset: ~".col-offset-@{index}, .col-s-offset-@{index}, .col-m-offset-@{index}";
-  @width: (@index / @cols ) * 100;
-  @{item} {
-    flex-basis: ~"@{width}%";
-    max-width: ~"@{width}%";
-  }
-  @{offset} {
-    margin-left: ~"@{width}%";
-  }
-  .col((@index + 1), ~"@{list}, @{item}, @{offset}");
-}
-.col(@index, @list) when (@index > @cols) { // terminal
-  @{list} {
-    box-sizing: border-box;
-    flex-grow: 0;
-    flex-shrink: 0;
-    padding-right: @gutter / 2;
-    padding-left: @gutter / 2;
-  }
-}
-.col(1); // kickstart it
