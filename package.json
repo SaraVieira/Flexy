@@ -4,7 +4,7 @@
   "description": "A simple yet customizable flexbox grid",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "less": "gulp less"
   },
   "repository": {
     "type": "git",
@@ -21,10 +21,11 @@
     "url": "https://github.com/SaraVieira/Flexy/issues"
   },
   "homepage": "https://github.com/SaraVieira/Flexy#readme",
-  "dependencies": {
+  "devDependencies": {
+    "autoprefixer": "^6.6.1",
+    "cssnano": "^3.10.0",
     "gulp": "^3.9.1",
     "gulp-less": "^3.3.0",
-    "gulp-serve": "^1.4.0",
-    "gulp-watch": "^4.3.11"
+    "gulp-postcss": "^6.2.0"
   }
 }
