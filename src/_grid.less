@@ -1,93 +1,138 @@
-.row,
-.column {
+.container {
   width: @container-width;
-  box-sizing: border-box;
-  display: flex;
-  flex: 0 1 auto;
-  flex-wrap: wrap;
-  margin-right: @gutter;
-  margin-left: @gutter;
+  display: block;
 
-  &.no-wrap {
-    flex-wrap: nowrap;
+  .row,
+  .column {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 1 auto;
+    flex-wrap: wrap;
+    margin-right: @gutter;
+    margin-left: @gutter;
+
+    &.no-wrap {
+      flex-wrap: nowrap;
+    }
+
+    [class^="col-"] {
+        box-sizing: border-box;
+        flex-grow: 0;
+        flex-shrink: 0;
+        padding-right: @gutter / 2;
+        padding-left: @gutter / 2;
+    }
+
+    .loop(@cols);
+
+    .col-s-hidden,
+    .col-m-hidden,
+    .col-l-hidden {
+      display: block;
+    }
+
+    .col-hidden {
+      display: none;
+    }
+
+    @media @l {
+    	.loop(@cols, l);
+
+      .col-s-hidden,
+      .col-m-hidden,
+      .col-hidden {
+        display: block;
+      }
+
+      .col-l-hidden {
+        display: none;
+      }
+    }
+
+    @media @m {
+    	.loop(@cols, m);
+
+      .col-s-hidden,
+      .col-l-hidden,
+      .col-hidden {
+        display: block;
+      }
+
+      .col-m-hidden {
+        display: none;
+      }
+    }
+
+    @media @s {
+    	.loop(@cols, s);
+
+      .col-m-hidden,
+      .col-l-hidden,
+      .col-hidden {
+        display: block;
+      }
+
+      .col-s-hidden {
+        display: none;
+      }
+    }
   }
 
-  [class^="col-"] {
-      box-sizing: border-box;
-      flex-grow: 0;
-      flex-shrink: 0;
-      padding-right: @gutter / 2;
-      padding-left: @gutter / 2;
+  .row {
+    flex-direction: row;
+
+    &.reverse {
+      flex-direction: row-reverse;;
+    }
   }
 
-  .loop(@cols);
+  .column {
+    flex-direction: column;
 
-  @media @l {
-  	.loop(@cols, l);
+    &.reverse {
+      flex-direction: column-reverse;;
+    }
   }
 
-  @media @m {
-  	.loop(@cols, m);
+  [class*="items-"],
+  [class*="justify-"] {
+    display: flex;
   }
 
-  @media @s {
-  	.loop(@cols, s);
+  .items-center {
+    align-items: center;
   }
-}
 
-.row {
-  flex-direction: row;
-
-  &.reverse {
-    flex-direction: row-reverse;;
+  .items-start {
+    align-items: flex-start;
   }
-}
 
-.column {
-  flex-direction: column;
-
-  &.reverse {
-    flex-direction: column-reverse;;
+  .items-end {
+    align-items: flex-end;
   }
-}
 
-[class*="items-"],
-[class*="justify-"] {
-  display: flex;
-}
+  .items-stretch {
+    align-items: stretch;
+  }
 
-.items-center {
-  align-items: center;
-}
+  .justify-center {
+    justify-content: center;
+  }
 
-.items-start {
-  align-items: flex-start;
-}
+  .justify-end {
+    justify-content: flex-end;
+  }
 
-.items-end {
-  align-items: flex-end;
-}
+  .justify-start {
+    justify-content: flex-start;
+  }
 
-.items-stretch {
-  align-items: stretch;
-}
+  .justify-around {
+    justify-content: space-around;
+  }
 
-.justify-center {
-  justify-content: center;
-}
-
-.justify-end {
-  justify-content: flex-end;
-}
-
-.justify-start {
-  justify-content: flex-start;
-}
-
-.justify-around {
-  justify-content: space-around;
-}
-
-.justify-between {
-  justify-content: space-between;
+  .justify-between {
+    justify-content: space-between;
+  }
 }
