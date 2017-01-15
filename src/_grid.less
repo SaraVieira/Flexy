@@ -1,6 +1,7 @@
 .container {
   width: @container-width;
   display: block;
+  margin: auto;
 
   .row,
   .column {
@@ -23,7 +24,7 @@
         padding-left: @gutter / 2;
     }
 
-    .loop(@cols);
+    .generateCols(@cols);
 
     .col-s-hidden,
     .col-m-hidden,
@@ -36,7 +37,7 @@
     }
 
     @media @l {
-    	.loop(@cols, l);
+    	.generateCols(@cols, l);
 
       .col-s-hidden,
       .col-m-hidden,
@@ -50,7 +51,7 @@
     }
 
     @media @m {
-    	.loop(@cols, m);
+    	.generateCols(@cols, m);
 
       .col-s-hidden,
       .col-l-hidden,
@@ -64,7 +65,7 @@
     }
 
     @media @s {
-    	.loop(@cols, s);
+    	.generateCols(@cols, s);
 
       .col-m-hidden,
       .col-l-hidden,
