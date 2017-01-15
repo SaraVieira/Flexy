@@ -11,24 +11,24 @@
 }
 
 // Loop for responsive breakpoints
-.generateCols(@cols, @media) when (@cols > 0) {
-	.generateCols((@cols - 1), @media);
-  @width: (@cols / @cols ) * 100;
-	.col-@{media}-@{cols} {
+.generateCols(@counter, @media) when (@counter > 0) {
+	.generateCols((@counter - 1), @media);
+  @width: (@counter / @cols ) * 100;
+	.col-@{media}-@{counter} {
       flex-basis: ~"@{width}%";
       max-width: ~"@{width}%";
 	}
 
-  .col-offset-@{media}-@{cols} {
+  .col-offset-@{media}-@{counter} {
     margin-left: ~"@{width}%";
 	}
 }
 
 // Loop for normal cols
-.generateCols(@cols) when (@cols > 0) {
-	.generateCols((@cols - 1));
-  @width: (@cols / @cols ) * 100;
-  .col-@{cols} {
+.generateCols(@counter) when (@counter > 0) {
+	.generateCols((@counter - 1));
+  @width: (@counter / @cols ) * 100;
+  .col-@{counter} {
     flex-basis: ~"@{width}%";
     max-width: ~"@{width}%";
 	}
