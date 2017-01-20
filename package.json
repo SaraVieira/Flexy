@@ -2,7 +2,7 @@
   "name": "flexy-css",
   "version": "1.0.0",
   "description": "A simple yet customizable Flexbox grid",
-  "main": "index.js",
+  "main": "dist/flexy.css",
   "scripts": {
     "less": "gulp less"
   },

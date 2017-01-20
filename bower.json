@@ -1,0 +1,23 @@
+{
+  "name": "flexy-css",
+  "description": "A simple yet customizable Flexbox grid",
+  "main": "dist/flexy.css",
+  "authors": [
+    "Sara Vieira"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "css",
+    "flexbox",
+    "grid",
+    "less"
+  ],
+  "homepage": "https://github.com/SaraVieira/Flexy",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
