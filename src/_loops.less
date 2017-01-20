@@ -26,10 +26,14 @@
 
 // Loop for normal cols
 .generateCols(@counter) when (@counter > 0) {
-	.generateCols((@counter - 1));
   @width: (@counter / @cols ) * 100;
   .col-@{counter} {
     flex-basis: ~"@{width}%";
     max-width: ~"@{width}%";
-	}
+  }
+
+  .col-offset-@{counter} {
+    margin-left: ~"@{width}%";
+  }
+  .generateCols((@counter - 1));
 }
