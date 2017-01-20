@@ -1,7 +1,7 @@
 {
-  "name": "flexy",
-  "version": "0.0.1",
-  "description": "A simple yet customizable flexbox grid",
+  "name": "flexy-css",
+  "version": "1.0.0",
+  "description": "A simple yet customizable Flexbox grid",
   "main": "index.js",
   "scripts": {
     "less": "gulp less"
