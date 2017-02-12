@@ -11,8 +11,7 @@
 }
 
 // Loop for responsive breakpoints
-.generateCols(@counter, @media) when (@counter > 0) {
-	.generateCols((@counter - 1), @media);
+.generateResponsiveCols(@counter, @media) when (@counter > 0) {
   @width: (@counter / @cols ) * 100;
 	.col-@{media}-@{counter} {
       flex-basis: ~"@{width}%";
@@ -22,6 +21,7 @@
   .col-offset-@{media}-@{counter} {
     margin-left: ~"@{width}%";
 	}
+  .generateResponsiveCols((@counter - 1), @media);
 }
 
 // Loop for normal cols
@@ -35,5 +35,5 @@
   .col-offset-@{counter} {
     margin-left: ~"@{width}%";
   }
-  .generateCols((@counter - 1));
+  .generateCols(@counter - 1);
 }
